@@ -246,8 +246,8 @@ class ImageStackingPipeline:
         messagebox.showinfo("Success",f"GEOTRAN completed for {len(fits_list)} files.\nOutputs: {', '.join(output_files)}")
 
     def run_imcombine(self):
-        # List of filter names as they appear in your labels
-        # and the suffix for the output filename
+        # List of filter names as they are in labels
+        # and the output filename
         filters = [
             ("b_filter", "Stacked_B"),
             ("v_filter", "Stacked_V"),

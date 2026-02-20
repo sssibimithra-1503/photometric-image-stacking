@@ -192,13 +192,12 @@ class ImageStackingPipeline:
         messagebox.showinfo("Success", f"XYXYMATCH completed.\nOutput: {out}")
 
     def run_geomap(self):
-        # askopenfilenames returns a list-like string or tuple
         inp_raw = self.input_file_entry.get()
         if not inp_raw:
             messagebox.showerror("Error", "Please provide input match file for GEOMAP.")
             return
 
-        # Extract individual paths (handles spaces and braces from tkinter)
+        # Extract individual paths 
         inp_list = self.root.tk.splitlist(inp_raw)
 
         self.output_dir = os.path.dirname(inp_list[0])
@@ -216,7 +215,7 @@ class ImageStackingPipeline:
                             f"GEOMAP completed for {len(inp_list)} files.\nDatabases: {', '.join(created_databases)}")
 
     def run_geotran(self):
-        # Assuming multiple FITS files are selected to be transformed
+        # Multiple FITS files are selected to be transformed
         fits_raw = self.fits_file_entry.get()
         match = self.matched_file_entry.get()
         db = self.database_file_entry.get()
@@ -259,13 +258,13 @@ class ImageStackingPipeline:
 
         for attr_prefix, out_suffix in filters:
             try:
-                # Construct the dynamic attribute name correctly
+                # Construct the attribute name correctly
                 entry_attr = f"{attr_prefix}_entry"
                 entry_widget = getattr(self, entry_attr)
                 inp = entry_widget.get()
 
                 if not inp:
-                    continue  # Skip if no files were selected for this specific filter
+                    continue  
 
 
                 inp_list = self.root.tk.splitlist(inp)

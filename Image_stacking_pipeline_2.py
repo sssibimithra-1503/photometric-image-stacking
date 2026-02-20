@@ -171,7 +171,7 @@ class ImageStackingPipeline:
                             f"GEOMAP completed for {len(inp_list)} files.\nDatabases: {', '.join(created_databases)}")
 
     def run_geotran(self):
-        # Assuming multiple FITS files are selected to be transformed
+        # Multiple FITS files are selected to be transformed
         fits_raw = self.fits_file_entry.get()
         match = self.matched_file_entry.get()
         db = self.database_file_entry.get()

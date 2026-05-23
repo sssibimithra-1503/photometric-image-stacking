@@ -81,7 +81,7 @@ class ImageStackingPipeline:
         ttk.Button(frame, text=button_text, command=lambda e=entry: command(e)).pack(side="left", padx=5)
         setattr(self, label_text.replace(" ", "_").replace(":", "").lower() + "_entry", entry)
 
-    # Utility to find next available filename
+    # To find next available filename
     def get_next_filename(self, directory, base_name, extension):
         existing_files = [f for f in os.listdir(directory) if
                           re.match(f"{base_name}_[0-9]{{3}}{re.escape(extension)}$", f)]
